@@ -50,5 +50,6 @@ var DebugToHTML = function (elementId) {
     var appendToElement = function(htmlString) {
         var element = document.getElementById(elementId);
         element.insertAdjacentHTML('beforeend', htmlString);
+        element.scrollTop = element.lastChild.offsetTop;
     }
 };
