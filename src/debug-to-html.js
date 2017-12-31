@@ -3,6 +3,7 @@ var DebugToHTML = function (elementId) {
     var error = console.error;
     var warn = console.warn;
     var debg = console.debug;
+    var clear = console.clear;
 
     console.log = function() {
         var args = Array.prototype.slice.call(arguments);
@@ -32,6 +33,11 @@ var DebugToHTML = function (elementId) {
         appendToElement('<p>' + 'Debug: ' + concatenatedString + '</p>');
     }
 
+    console.clear = function() {
+        clear();
+        clearElement();
+    }
+
     var concatStrings = function(args) {
         var result = '';
 
@@ -51,5 +57,10 @@ var DebugToHTML = function (elementId) {
         var element = document.getElementById(elementId);
         element.insertAdjacentHTML('beforeend', htmlString);
         element.scrollTop = element.lastChild.offsetTop;
+    }
+
+    var clearElement = function() {
+        var element = document.getElementById(elementId);
+        element.innerHTML = '';
     }
 };
