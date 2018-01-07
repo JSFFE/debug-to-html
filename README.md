@@ -8,7 +8,7 @@ Samall libray that can be used to display console messages inside html view.
 ## How to add?
 * Add link to the html file
 ```html
-<script src="https://cdn.jsdelivr.net/gh/juztcode/debug-to-html@0.0.2/src/debug-to-html.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/juztcode/console-to-html@0.0.1/src/console-to-html.js"></script>
 ```
 
 * Initialize with html element id that you are using to display logs
