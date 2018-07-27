@@ -1,36 +1,44 @@
 var DebugToHTML = function (elementId) {
     var log = console.log;
-    var error = console.error;
+    var info = console.info;
     var warn = console.warn;
-    var debg = console.debug;
+    var debug = console.debug;
+    var error = console.error;
     var clear = console.clear;
 
     console.log = function() {
         var args = Array.prototype.slice.call(arguments);
         var concatenatedString = concatStrings(args);
         log.apply(console, args);
-        appendToElement('<p>' + 'Info: ' + concatenatedString + '</p>');
+        appendToElement('<p>' + '[log] ' + concatenatedString + '</p>');
     }
 
-    console.error = function() {
+    console.info = function() {
         var args = Array.prototype.slice.call(arguments);
         var concatenatedString = concatStrings(args);
-        error.apply(console, args);
-        appendToElement('<p style="color: red">' + 'Error: ' + concatenatedString + '</p>');
-    }
-
-    console.warn = function() {
-        var args = Array.prototype.slice.call(arguments);
-        var concatenatedString = concatStrings(args);
-        warn.apply(console, args);
-        appendToElement('<p style="color: yellow">' + 'Warn: ' + + concatenatedString + '</p>');
+        info.apply(console, args);
+        appendToElement('<p>' + '[info] ' + concatenatedString + '</p>');
     }
 
     console.debug = function() {
         var args = Array.prototype.slice.call(arguments);
         var concatenatedString = concatStrings(args);
         debug.apply(console, args);
-        appendToElement('<p>' + 'Debug: ' + concatenatedString + '</p>');
+        appendToElement('<p>' + '[debug] ' + concatenatedString + '</p>');
+    }
+
+    console.warn = function() {
+        var args = Array.prototype.slice.call(arguments);
+        var concatenatedString = concatStrings(args);
+        warn.apply(console, args);
+        appendToElement('<p style="color: yellow">' + '[warn] ' + + concatenatedString + '</p>');
+    }
+
+    console.error = function() {
+        var args = Array.prototype.slice.call(arguments);
+        var concatenatedString = concatStrings(args);
+        error.apply(console, args);
+        appendToElement('<p style="color: red">' + '[error] ' + concatenatedString + '</p>');
     }
 
     console.clear = function() {

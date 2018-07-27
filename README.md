@@ -22,9 +22,10 @@ DebugToHTML('elementId');
 
 ## What are the functions?
 * console.log()
+* console.info()
+* console.debug()
 * console.warn()
 * console.error()
-* console.debug()
 * console.clear()
 
 >Happy Coding :)
